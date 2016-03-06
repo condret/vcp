@@ -199,19 +199,20 @@ char *bar_str(char percent)
     if (result == NULL)
         return NULL;
 
-    result[0] = '[';
-    result[BAR_WIDTH-1] = ']';
+    result[0] = '8';
+    result[BAR_WIDTH-1] = '~';
     result[BAR_WIDTH] = '\0';
 
     double temp = BAR_STEP;
     int i = 1;
     while ((temp <= percent) && (i < BAR_WIDTH-1)) {
-        result[i] = '#';
+        result[i] = '=';
         i++;
         temp += BAR_STEP;
     }
+    result[i-1] = 'D';
     while (i < BAR_WIDTH-1) {
-        result[i] = '-';
+        result[i] = ' ';
         i++;
     }
 
